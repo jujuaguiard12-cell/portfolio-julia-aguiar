@@ -27,7 +27,7 @@ Todos os caminhos são relativos e funcionam no subdiretório do GitHub Pages. N
 - `css/style.css`: cores em `:root`, estilos, responsividade e animações.
 - `js/main.js`: menu móvel, revelação na rolagem, seção ativa e controle de animação.
 - `assets/fonts/`: fontes DM Sans locais da referência.
-- `assets/images/`: favicon, escultura decorativa e futuras fotos.
+- `assets/images/`: favicon e futuras fotos.
 
 ### Foto principal
 
@@ -55,7 +55,7 @@ Substitua um `<article class="future-project">` na seção `#projetos` por títu
 
 ## Referência
 
-O arquivo `forma-ai.aura.build (1).zip` foi preservado integralmente. A direção visual e a escultura decorativa foram aproveitadas dessa referência; os textos e a estrutura foram adaptados ao portfólio solicitado.
+O arquivo `forma-ai.aura.build (1).zip` foi preservado integralmente. A direção visual foi inspirada nessa referência; os textos e a estrutura foram adaptados ao portfólio solicitado.
 
 ## Acessibilidade e movimento
 
