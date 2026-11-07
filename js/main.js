@@ -58,6 +58,27 @@
   addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(onScroll); } }, { passive: true });
   addEventListener('resize', () => { if (innerWidth > 760) closeMenu(); onScroll(); });
   onScroll();
+  const scene = document.querySelector('.portrait-scene');
+  const sculpture = document.querySelector('.sculpture-motion');
+  let orbQueued = false;
+  function moveOrbOnScroll() {
+    orbQueued = false;
+    const progress = Math.min(1, Math.max(0, scrollY / Math.max(1, innerHeight)));
+    sculpture.style.setProperty('--orb-scroll', paused || preference.matches ? '0px' : `${-progress * 22}px`);
+  }
+  addEventListener('scroll', () => {
+    if (!orbQueued) { orbQueued = true; requestAnimationFrame(moveOrbOnScroll); }
+  }, { passive: true });
+  scene.addEventListener('pointermove', e => {
+    if (paused || preference.matches || e.pointerType !== 'mouse') return;
+    const r = scene.getBoundingClientRect();
+    sculpture.style.setProperty('--orb-x', `${((e.clientX-r.left)/r.width-.5)*16}px`);
+    sculpture.style.setProperty('--orb-y', `${((e.clientY-r.top)/r.height-.5)*12}px`);
+  });
+  scene.addEventListener('pointerleave', () => {
+    sculpture.style.setProperty('--orb-x', '0px');
+    sculpture.style.setProperty('--orb-y', '0px');
+  });
   const portrait = document.querySelector('[data-tilt]');
   portrait.addEventListener('pointermove', e => {
     if (paused || preference.matches || e.pointerType !== 'mouse') return;
